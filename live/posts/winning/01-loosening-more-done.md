@@ -1,16 +1,17 @@
 ---
-title: "Loosening the Reins in Your Schedule to Get More Done "
+title: "Structured Freedom: Using a Flexible Schedule to Unlock More Productivity"
 image: "/winning/01/cover.png"
 publish: 2020-11-13
 type: post
 tags:
   - productivity
+  - winning
 # categories:
 #   - commonplace
 readingTime: 2 Min read
 ---
 
-## A quick note on scheduling.
+## Balance Between Structure and Freedom
  
 To-do lists and schedules are great tools with obvious utility. They help us
 keep our lives from becoming too chaotic and make it easier to "steer the ship"
