@@ -5,6 +5,7 @@ import { unified } from "@astrojs/markdown-remark"
 import mdx from "@astrojs/mdx"
 import partytown from "@astrojs/partytown"
 import react from "@astrojs/react"
+import tailwind from "@tailwindcss/vite"
 import compress from "astro-compress"
 import icon from "astro-icon"
 import { defineConfig } from "astro/config"
@@ -109,6 +110,7 @@ export default defineConfig({
   vite: {
     // A production build must not overwrite dependencies used by a live preview.
     plugins: [
+      tailwind(),
       {
         name: "separate-vite-caches",
         config: (_config, { command }) => ({

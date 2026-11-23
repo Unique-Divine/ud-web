@@ -11,7 +11,7 @@ type Layout =
   | "responsive"
   | "contained"
 
-export interface AttributesProps extends HTMLAttributes<"img"> {}
+export type AttributesProps = HTMLAttributes<"img">
 
 export interface ImageProps extends Omit<HTMLAttributes<"img">, "src"> {
   src?: string | ImageMetadata | null

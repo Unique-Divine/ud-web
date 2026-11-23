@@ -1,6 +1,3 @@
-// Tailwind 3 runs as a PostCSS plugin. This replaces @astrojs/tailwind,
-// which has no Astro 5+ release, with the same two plugins it applied.
-//
 // Autoprefixer's default query, "defaults", resolves against whatever
 // caniuse-lite is installed, so its prefixes drift as the data updates. This
 // list is what "defaults" resolved to with caniuse-lite 1.0.30001587, the
@@ -45,7 +42,6 @@ const browsers = [
 
 module.exports = {
   plugins: {
-    tailwindcss: {},
     // Astro 7's compiler reprints scoped <style> blocks, turning
     // (max-width: 600px) into (width <= 600px), which Safari before 16.4
     // ignores. This turns them back.
