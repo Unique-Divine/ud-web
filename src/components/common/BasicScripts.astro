@@ -122,7 +122,7 @@ import { UI } from "~/utils/config"
         newlink.click()
       })
 
-      let screenSize = window.matchMedia("(max-width: 767px)")
+      const screenSize = window.matchMedia("(max-width: 767px)")
       screenSize.addEventListener("change", function () {
         document
           .querySelector("[data-aw-toggle-menu]")
