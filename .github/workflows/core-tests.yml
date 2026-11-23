@@ -33,7 +33,7 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: 'Build and test the file service from package-lock.json'
-        run: just files-test npm
+        run: just files-test
 
       - name: 'Build (bun)'
         run: |
@@ -46,6 +46,3 @@ jobs:
       - name: 'Test (bun)'
         run: |
           just t # test, including build-output checks
-
-      - name: 'Build the file service'
-        run: bun run --bun --cwd services/files build
