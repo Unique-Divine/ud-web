@@ -1,5 +1,5 @@
 workspaces := ""
-npm_command := "bunx npm@12.2.0"
+npm_command := "bunx --bun npm@12.2.0"
 
 # Displays available recipes when running `just` or `just list`.
 [private]
@@ -16,7 +16,7 @@ dev *args:
   }
 
   dev() {
-    run_cmd bun run astro dev "$@"
+    run_cmd bun run --bun astro dev "$@"
   }
 
   if [ -z "{{args}}" ]; then
@@ -35,7 +35,7 @@ deploy-files:
 
 # Test HTTP file serving with real local files and validate TypeScript.
 files-test npm=(npm_command):
-  cd services/files && {{npm}} ci && bun run build && bun test src
+  cd services/files && {{npm}} ci && bun run --bun build && bun test src
 
 # Provision the file bucket and service identities without changing DNS.
 files-setup:
@@ -74,7 +74,7 @@ alias i := install
 
 # Build and compile the app
 build:
-  bun run astro build
+  bun run --bun astro build
 
 alias b := build
 
@@ -84,31 +84,30 @@ test:
 
 alias t := test
 
-# Type-check the site, scripts, and file service. Bun's checker covers .ts
-# files; astro check covers .astro files. astro sync first writes
-# .astro/types.d.ts, which tsconfig.json includes. Not checked: the bodies of
-# .mjs/.js helpers such as src/utils/sitemap-build.mjs (no checkJs yet).
+# Generate Astro types, then check the site, scripts, and file service.
 typecheck:
-  bun run astro sync
+  bun run --bun astro sync
   just typecheck-nosync
 
 alias tc := typecheck
 
-# Type-check without astro sync. CI runs this right after just b, which has
-# already generated .astro/types.d.ts.
+# Type-check after Astro has generated .astro/types.d.ts.
 typecheck-nosync:
   bun check
   bun check -p services/files
-  bun run astro check
+  bun run --bun astro check
 
+# Serve the production build locally.
 preview:
-  bun run astro preview
+  bun run --bun astro preview
 
-fmt: 
-  bun run prettier -w .
+# Format the project with Prettier.
+fmt:
+  bun run --bun prettier -w .
 
+# Lint JavaScript, TypeScript, and Astro files.
 lint:
-  bun run lint:eslint
+  bun run --bun lint:eslint
 
 # List tag spellings, display names, article counts, and normalization collisions.
 tags:
@@ -132,7 +131,7 @@ contents-test:
 
 # Preview the article alongside the current website work without deploying.
 research-preview:
-    bun run astro dev --host 127.0.0.1 --port 4323
+    bun run --bun astro dev --host 127.0.0.1 --port 4323
 
 # Refresh the public skills snapshot from a local jiyuu checkout.
 skills-import source:

@@ -83,7 +83,7 @@ export default function SkillSession({ skills }: { skills: FeaturedSkill[] }) {
   const [finished, setFinished] = useState<Record<string, FinalState>>({})
   const [paused, setPaused] = useState(false)
   const startRef = useRef(0)
-  const hoverTimer = useRef<number>()
+  const hoverTimer = useRef<number | undefined>(undefined)
   const transcriptRef = useRef<HTMLDivElement>(null)
 
   const session = sessions[active]

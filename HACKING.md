@@ -1,7 +1,7 @@
 # HACKING.md
 
-Personal website built with **[Astro 7](https://astro.build/) + [Tailwind CSS 3](https://tailwindcss.com/)**.
-Tailwind runs as a PostCSS plugin (`postcss.config.cjs`).
+Personal website built with **[Astro 7](https://astro.build/) + [Tailwind CSS 4](https://tailwindcss.com/)**.
+The `@tailwindcss/vite` plugin loads the stylesheet in `src/assets/styles/tailwind.css`. Tailwind CSS 4 targets Safari 16.4, Chrome 111, and Firefox 128 or later.
 
 - ✅ **Production-ready** scores in **PageSpeed Insights** reports
 - ✅ Integration with **Tailwind CSS** supporting **Dark mode**

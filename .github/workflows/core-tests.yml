@@ -14,14 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout branch'
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           submodules: true
-
-      - name: 'Setup NodeJS and npm'
-        uses: actions/setup-node@v7
-        with:
-          node-version: 'lts/jod' # jod=22, iron=20, gallium=18
 
       - name: 'Setup Bun'
         # See https://bun.sh/guides/runtime/cicd
@@ -38,7 +33,7 @@ jobs:
         run: bun install --frozen-lockfile
 
       - name: 'Build and test the file service from package-lock.json'
-        run: just files-test npm
+        run: just files-test
 
       - name: 'Build (bun)'
         run: |
